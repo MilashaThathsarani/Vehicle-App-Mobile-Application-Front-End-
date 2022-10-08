@@ -1,11 +1,12 @@
-import { View, Text } from 'react-native'
+
 import React from 'react'
+import { NativeBaseProvider, Text } from "native-base";
 
 function Login() {
   return (
-    <View>
-      <Text>Milasha Thathsarani.................</Text>
-    </View>
+    <NativeBaseProvider>
+      <Text>Login</Text>
+    </NativeBaseProvider>
   )
 }
 
