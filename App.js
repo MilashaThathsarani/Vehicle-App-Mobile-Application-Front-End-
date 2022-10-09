@@ -6,8 +6,8 @@ import Register from './screens/Register'
 
 export default function App() {
   return (
- <FirstPage/>
+ //<FirstPage/>
  //<Login/>
-//<Register/>
+<Register/>
   )
 }
