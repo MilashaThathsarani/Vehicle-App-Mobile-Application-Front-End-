@@ -1,7 +1,7 @@
 import { NativeBaseProvider, Text,Input,VStack,Button} from "native-base";
 import React from 'react'
 
-function Register() {
+function Register({navigation}) {
   return (
     <NativeBaseProvider>
     <VStack space={3} alignItems="center">
@@ -9,7 +9,7 @@ function Register() {
     <Input variant="outline" placeholder="User Name" borderColor={'#182C61'} mt='16' width='80%' borderRadius='20'/>
     <Input variant="outline" placeholder="Email" borderColor={'#182C61'} mt='3' width='80%' borderRadius='20'/>
     <Input variant="outline" placeholder="Password" borderColor={'#182C61'} mt='3' width='80%' borderRadius='20'/>
-    <Button size="md" backgroundColor={'#182C61'} width='40%' mt='7' borderRadius='22'>Create Account</Button>
+    <Button size="md" backgroundColor={'#182C61'} width='40%' mt='7' borderRadius='22' onPress={()=>{navigation.navigate("Home")}}>Create Account</Button>
     </VStack>
   </NativeBaseProvider>
   )
