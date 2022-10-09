@@ -1,6 +1,6 @@
 import { View, FlatList,TouchableOpacity,Text} from 'react-native'
 import React, { useEffect ,useState} from 'react'
-import {Button} from "native-base";
+import { NativeBaseProvider ,Button} from 'native-base';
 
 
 export default function Home({navigation}) {
@@ -27,5 +27,7 @@ export default function Home({navigation}) {
         }
     />
 </View>
+
+
   )
 }

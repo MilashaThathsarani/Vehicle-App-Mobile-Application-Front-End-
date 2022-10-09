@@ -1,8 +1,31 @@
 
-import React from 'react'
 import { NativeBaseProvider, Text,Input,VStack,Button,Link,Image} from "native-base";
+import React, { useState,useEffect } from 'react'
+import { Alert } from 'react-native';
 
 function Login({navigation}) {
+
+  const[title,setTitle]=useState('');
+    const[body,setBody]=useState('');
+    const[id,setId]=useState('');
+
+
+  const saveVehicle=()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    id:1,
+    title: title,
+    body: body,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+.then((response) => {Alert.alert("Save Saved Successfully !")})
+.catch((err)=>{Alert.alert("Error occured !")})
+}
+
   return (
     <NativeBaseProvider>
       <VStack space={3} alignItems="center">

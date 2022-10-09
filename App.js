@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home'
 import ModifyCar from './screens/ModifyCar';
+import AddCar from './screens/AddCar';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="ModifyCar" component={ModifyCar} />
+      <Stack.Screen name="AddCar" component={AddCar} />
     </Stack.Navigator>}
     </NavigationContainer>
   )
