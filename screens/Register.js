@@ -5,11 +5,11 @@ function Register() {
   return (
     <NativeBaseProvider>
     <VStack space={3} alignItems="center">
-    <Text color={'#574b90'} alignItems='center' mt="20" fontSize="30" fontWeight={'bold'}>Register</Text>
-    <Input variant="outline" placeholder="User Name" borderColor={'#574b90'} mt='20' width='80%'/>
-    <Input variant="outline" placeholder="Email" borderColor={'#574b90'} mt='5' width='80%'/>
-    <Input variant="outline" placeholder="Password" borderColor={'#574b90'} mt='5' width='80%'/>
-    <Button size="md" backgroundColor={'#574b90'} width='40%' mt='10'>Save</Button>
+    <Text color={'#182C61'} alignItems='center' mt="20" fontSize="30" fontWeight={'bold'}>Register</Text>
+    <Input variant="outline" placeholder="User Name" borderColor={'#182C61'} mt='16' width='80%'/>
+    <Input variant="outline" placeholder="Email" borderColor={'#182C61'} mt='4' width='80%'/>
+    <Input variant="outline" placeholder="Password" borderColor={'#182C61'} mt='4' width='80%'/>
+    <Button size="md" backgroundColor={'#182C61'} width='40%' mt='7'>Save</Button>
     </VStack>
   </NativeBaseProvider>
   )
