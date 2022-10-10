@@ -2,6 +2,7 @@ import { NativeBaseProvider, Text,Input,VStack,Button} from "native-base";
 import React from 'react'
 
 function Register({navigation}) {
+  
   const[email,setEmail]=useState('');
     const[contactNumber,setContactNumber]=useState('');
     const[userName,setUserName]=useState('');

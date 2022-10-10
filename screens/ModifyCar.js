@@ -49,9 +49,9 @@ const deletePost=()=>{
       <Input value={brand} onChangeText={(e)=>{setBrand(e)}} mt='3' mx="3" placeholder="Brand" w="300" height='10'borderColor={'#182C61'}/>
       <Input value={vehicleNumber} onChangeText={(e)=>{setVehicleNumber(e)}} mt='3' mx="3" placeholder="Vehicle Number" w="300" borderColor={'#182C61'} />
       <Input value={price} onChangeText={(e)=>{setPrice(e)}} mt='3' mx="3" placeholder="Price" w="300" borderColor={'#182C61'} />
-      <Button left='110' borderRadius='105' mt="10%" size="md" color='red' onPress={updatePost}>
+      <Button left='110' borderRadius='105' mt="10%" size="md" color='red' onPress={() => { updatePost()}}>
             Update</Button>
-      <Button left='110' borderRadius='105' mt="5%" size="lg" color='red' onPress={deletePost}>
+      <Button left='110' borderRadius='105' mt="5%" size="lg" color='red' onPress={() => { deletePost()}}>
             Delete</Button>
         
       </VStack>

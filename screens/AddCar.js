@@ -4,28 +4,48 @@ import { Alert } from 'react-native';
 
 export default function AddCar() {
 
-  const[registerNumber,setRegisterNumber]=useState('');
+    const[registerNumber,setRegisterNumber]=useState('');
     const[brand,setBrand]=useState('');
     const[vehicleNumber,setVehicleNumber]=useState('');
     const[price,setPrice]=useState('');
 
+    const saveVehicle = async () => {
 
-  const saveVehicle=()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    registerNumber:registerNumber,
-    brand:brand,
-    vehicleNumber:vehicleNumber,
-    price:price
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-.then((response) => {Alert.alert("Vehicle Saved Successfully !")})
-.catch((err)=>{Alert.alert("Error occured !")})
+    if (registerNumber != "" && brand != "" && vehicleNumber != "" && price != "") {
+      fetch('', {
+        method: 'POST',
+        body: JSON.stringify({
+          registerNumber:registerNumber,
+          brand:brand,
+          vehicleNumber:vehicleNumber,
+          price:price
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          if (json.status === "500") {
+            Alert.alert(json.message)
+          } else {
+            Alert.alert(json.message)
+            clearTextFields();
+          }
+        })
+        .catch((err) => Alert.alert(err.message));
+    } else {
+      Alert.alert("Please fill all the fields and try again.")
+    }
+  }
+
+  const clearTextFields = () => {
+    setRegisterNumber("");
+    setBrand("");
+    setVehicleNumber("");
+    setPrice("");
 }
+
   return (
     <NativeBaseProvider>
       <VStack space={4} alignItems="center">
@@ -34,7 +54,7 @@ export default function AddCar() {
       <Input value={brand} onChangeText={(e)=>{setBrand(e)}} mt='3' mx="3" placeholder="Brand" w="300" height='10' borderColor={'#182C61'} />
       <Input value={vehicleNumber} onChangeText={(e)=>{setVehicleNumber(e)}} mt="3" mx="3" placeholder="Vehicle Number" w="300" height='10'borderColor={'#182C61'}/>
       <Input value={price} onChangeText={(e)=>{setPrice(e)}} mt="3" mx="3" placeholder="Price" w="300" borderColor={'#182C61'} height='10' />
-      <Button borderRadius='10' mt="10%" size="md" backgroundColor={'#182C61'} onPress={saveVehicle}>
+      <Button borderRadius='10' mt="10%" size="md" backgroundColor={'#182C61'} onPress={() => { saveVehicle()}}>
             Save</Button>
       </VStack>
     </NativeBaseProvider>

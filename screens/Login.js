@@ -10,7 +10,7 @@ function Login({navigation}) {
 
   loginUser = () => {
     if (userName != "" && password != "") {
-      fetch(`http://192.168.8.109:8000/users/login/${userName}/${password}`, {
+      fetch(`${userName}/${password}`, {
         method: "GET",
         headers: {
           'content-type': 'application/json'
@@ -20,7 +20,7 @@ function Login({navigation}) {
         .then((json) => {
           console.log(json);
           if (json.length === 0) {
-            Alert.alert("Username or password incorrect.Try again!")
+            Alert.alert("Username or Password incorrect.Try again!")
           } else {
             clearTextFields()
             Alert.alert("Login Successful.");
@@ -44,9 +44,9 @@ function Login({navigation}) {
       <Text color={'#182C61'} alignItems='center' mt="20" fontSize="30" fontWeight={'bold'}>Welcome !</Text>
       <Input value={email} onChangeText={(e)=>{setEmail(e)}} variant="outline" placeholder="Email" borderColor={'#182C61'} mt='10' width='80%'borderRadius='20'/>
       <Input value={password} onChangeText={(e)=>{setPassword(e)}} variant="outline" placeholder="Password" borderColor={'#182C61'} mt='3' width='80%' borderRadius='20'/>
-      <Button size="md" backgroundColor={'#182C61'} width='40%' mt='8' borderRadius='20'onPress={saveLogin}>Login</Button>
+      <Button size="md" backgroundColor={'#182C61'} width='40%' mt='8' borderRadius='20'onPress={() => { loginUser()}}>Login</Button>
       <Text color={'#182C61'} alignItems='center' mt="39" fontSize="15">Don't have an account ?</Text>
-      <Link href="" color={'#182C61'} onPress={() => { loginUser()}}>Register Now !</Link>
+      <Link href="" color={'#182C61'} onPress={()=>{navigation.navigate("Register")}} >Register Now !</Link>
       <Image size={10} borderRadius={80} source={require('../assets/car.png')} alt="Alternate Text" mt='71' />
     
       </VStack>
