@@ -2,42 +2,35 @@ import React, { useState } from 'react'
 import { NativeBaseProvider, Text, Input, VStack, Button} from "native-base";
 import { Alert } from 'react-native';
 
-export default function AddCar() {
+export default function AddCar(navigation) {
 
     const[registerNumber,setRegisterNumber]=useState('');
     const[brand,setBrand]=useState('');
     const[vehicleNumber,setVehicleNumber]=useState('');
     const[price,setPrice]=useState('');
 
-    const saveVehicle = async () => {
-
-    if (registerNumber != "" && brand != "" && vehicleNumber != "" && price != "") {
-      fetch('', {
-        method: 'POST',
-        body: JSON.stringify({
+    const saveVehicle=()=>{
+      console.log(registerNumber,brand,vehicleNumber,price)
+      fetch('http://192.168.8.100:8000/car',{
+        method:'POST',
+        body:JSON.stringify({
           registerNumber:registerNumber,
           brand:brand,
           vehicleNumber:vehicleNumber,
           price:price
         }),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
+            'Content-type': 'application/json; charset=UTF-8',
+       }
       })
-        .then((response) => response.json())
-        .then((json) => {
-          if (json.status === "500") {
-            Alert.alert(json.message)
-          } else {
-            Alert.alert(json.message)
-            clearTextFields();
-          }
-        })
-        .catch((err) => Alert.alert(err.message));
-    } else {
-      Alert.alert("Error.")
+  
+      .then((response) => {
+        
+        Alert.alert(" Registerd Successfully !")
+        clearTextFields();
+      })
+      .catch((err)=>{Alert.alert("Error occured !")})
     }
-  }
 
   const clearTextFields = () => {
     setRegisterNumber("");
