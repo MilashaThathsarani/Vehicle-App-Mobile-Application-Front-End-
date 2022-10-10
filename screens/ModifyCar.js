@@ -17,7 +17,7 @@ export default function ModifyCar({route}) {
 
 
 const updatePost=()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    fetch('http://192.168.8.100:8000/car', {
   method: 'PUT',
   body: JSON.stringify({
     registerNumber:registerNumber,

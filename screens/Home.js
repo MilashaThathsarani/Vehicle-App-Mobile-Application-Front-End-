@@ -1,6 +1,6 @@
 import { View, FlatList,TouchableOpacity,Text} from 'react-native'
 import React, { useEffect ,useState} from 'react'
-import { NativeBaseProvider ,Button} from 'native-base';
+import { NativeBaseProvider ,Button,Fab} from 'native-base';
 
 
 export default function Home({navigation}) {
@@ -15,6 +15,9 @@ export default function Home({navigation}) {
 
 
   return (
+    <NativeBaseProvider>
+      <Fab onPress={()=>{navigation.navigate("AddCar")}} renderInPortal={false} shadow={2} size="md" label="Add Vehicle"/>
+
     <View style={{padding:20}}>
       <Text>Vehicle Details</Text>
     <FlatList
@@ -29,6 +32,7 @@ export default function Home({navigation}) {
         }
     />
 </View>
+</NativeBaseProvider>
 
 
   )
