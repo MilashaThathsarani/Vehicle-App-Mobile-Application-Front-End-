@@ -33,7 +33,7 @@ const updatePost=()=>{
 .catch((err)=>{Alert.alert("Error occured !")})
 }
 
-const DeletePost=()=>{
+const deletePost=()=>{
   fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'DELETE',
 })
@@ -51,7 +51,7 @@ const DeletePost=()=>{
       <Input value={price} onChangeText={(e)=>{setPrice(e)}} mt='3' mx="3" placeholder="Price" w="300" borderColor={'#182C61'} />
       <Button left='110' borderRadius='105' mt="10%" size="md" color='red' onPress={updatePost}>
             Update</Button>
-      <Button left='110' borderRadius='105' mt="5%" size="lg" color='red' onPress={updatePost}>
+      <Button left='110' borderRadius='105' mt="5%" size="lg" color='red' onPress={deletePost}>
             Delete</Button>
         
       </VStack>
