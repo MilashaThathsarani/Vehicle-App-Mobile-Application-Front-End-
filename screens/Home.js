@@ -8,7 +8,7 @@ export default function Home({navigation}) {
   const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('http://192.168.8.100:8000/car')
             .then((response) => response.json())
             .then((json) => setPosts(json));
     })

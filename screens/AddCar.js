@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NativeBaseProvider, Text, Input, VStack, Button} from "native-base";
 import { Alert } from 'react-native';
 
-export default function AddCar(navigation) {
+export default function AddCar() {
 
     const[registerNumber,setRegisterNumber]=useState('');
     const[brand,setBrand]=useState('');
