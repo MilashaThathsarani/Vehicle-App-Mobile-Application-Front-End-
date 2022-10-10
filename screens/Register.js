@@ -33,7 +33,7 @@ function Register({navigation}) {
         })
         .catch((err) => Alert.alert(err.message));
     } else {
-      Alert.alert("Please fill all the fields and try again.")
+      Alert.alert("Error.")
     }
 
   const clearTextFields = () => {

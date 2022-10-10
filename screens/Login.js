@@ -23,7 +23,7 @@ function Login({navigation}) {
             Alert.alert("Username or Password incorrect.Try again!")
           } else {
             clearTextFields()
-            Alert.alert("Login Successful.");
+            Alert.alert("Login Successfully.");
             navigation.navigate("Home")
           }
         })
@@ -42,7 +42,7 @@ function Login({navigation}) {
     <NativeBaseProvider>
       <VStack space={3} alignItems="center">
       <Text color={'#182C61'} alignItems='center' mt="20" fontSize="30" fontWeight={'bold'}>Welcome !</Text>
-      <Input value={email} onChangeText={(e)=>{setEmail(e)}} variant="outline" placeholder="Email" borderColor={'#182C61'} mt='10' width='80%'borderRadius='20'/>
+      <Input value={userName} onChangeText={(e)=>{setUserName(e)}} variant="outline" placeholder="Email" borderColor={'#182C61'} mt='10' width='80%'borderRadius='20'/>
       <Input value={password} onChangeText={(e)=>{setPassword(e)}} variant="outline" placeholder="Password" borderColor={'#182C61'} mt='3' width='80%' borderRadius='20'/>
       <Button size="md" backgroundColor={'#182C61'} width='40%' mt='8' borderRadius='20'onPress={() => { loginUser()}}>Login</Button>
       <Text color={'#182C61'} alignItems='center' mt="39" fontSize="15">Don't have an account ?</Text>
